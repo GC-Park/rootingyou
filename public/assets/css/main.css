@@ -453,7 +453,9 @@ input, select, textarea {
 				#main .item.thumb p {
 					color: #ffffff;
 					position: absolute;
-					bottom: 50%;
+					left: 0;
+					bottom: 45%;
+					width: 100%;
 					font-weight: 400;
 					text-align: center;
 					z-index: 2;
