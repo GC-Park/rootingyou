@@ -38,11 +38,12 @@ app.get('/', (req, res)=>{
       }
       
       if((i%2)===0){
-        data1.unshift(j)
+        data1.push(j)
       }else{
-        data2.unshift(j)
+        data2.push(j)
       }
     }
+    
     res.render('index', {data1, data2});
   })
   
