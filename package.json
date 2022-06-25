@@ -1,0 +1,22 @@
+{
+  "name": "html5up-parallelism",
+  "version": "1.0.0",
+  "description": "Parallelism by HTML5 UP\r html5up.net | @ajlkn\r Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines":{
+    "node": "16.15.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
