@@ -98,6 +98,9 @@ app.get('/postNew', (req, res)=>{
 
 app.post('/postNew/users', (req, res)=>{
   const { tag, author, quote } = req.body;
+  if(!tag || !author || !quote){
+    return res.redirect('/postNew')
+  }
   con.query(`INSERT INTO book (tag, author, quote) VALUES (?, ?, ?)`, [tag, author, quote])
   res.redirect('/')
 })
