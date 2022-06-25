@@ -5,19 +5,6 @@ const con = require('./models/mysql');
 const expressSession = require('express-session')
 const bcrypt = require('bcrypt')
 
-const homeController = require('./controllers/home')
-const loginController = require('./controllers/login');
-const loginUserController = require('./controllers/loginUser')
-const logoutController = require('./controllers/logout')
-const newUserController = require('./controllers/register')
-const storeUserController = require('./controllers/registerUser')
-const newPostController = require('./controllers/newPost')
-const storePostController = require('./controllers/storePost')
-const recommendController = require('./controllers/recommend')
-
-const userMiddleware = require('./middleware/userMiddleware')
-const redirectMiddleware = require('./middleware/redirectMiddleware')
-
 const app = new express()
 app.set('view engine', 'ejs')
 
@@ -40,15 +27,91 @@ app.use('*', (req, res, next) => {
 })
 
 
-app.get('/', homeController)
-app.get('/login', redirectMiddleware, loginController)
-app.post('/login/users', redirectMiddleware, loginUserController)
-app.get('/logout', logoutController)
-app.get('/register', redirectMiddleware, newUserController)
-app.post('/register/users', redirectMiddleware, storeUserController)
-app.get('/postNew', userMiddleware, newPostController)
-app.post('/postNew/users', userMiddleware, storePostController)
-app.get('/recommend', recommendController)
+app.get('/', (req, res)=>{
+  con.query('SELECT * FROM book', (err, datas, fields)=>{
+    let data1 = []
+    let data2 = []
+    for(i=0; i<16; i++){
+      let j=datas.pop();
+      if(!j){
+        break;
+      }
+      
+      if((i%2)===0){
+        data1.unshift(j)
+      }else{
+        data2.unshift(j)
+      }
+    }
+    res.render('index', {data1, data2});
+  })
+  
+})
+
+app.get('/login', (req, res)=>{
+  res.render('login');
+})
+
+app.post('/login/users', (req, res)=>{
+  const { username, password } = req.body;
+
+  con.query('SELECT password FROM usersdb WHERE id=?', [username], (err, data, fields)=>{
+    bcrypt.compare(password, data[0].password, (error, same)=>{
+      console.log(typeof password, typeof data[0].password)
+      sam = (password==data[0].password)
+      if(sam){
+        req.session.userId = username
+        console.log(req.session.userId)
+        res.redirect('/')
+      }else{
+        res.redirect('/login')
+      }
+    })
+  })
+})
+
+app.get('/logout', (req, res) => {
+  req.session.destroy(()=>{
+      res.redirect('/')
+  })
+})
+
+app.get('/register', (req, res)=>{
+  res.render('register');
+})
+
+app.post('/register/users', (req, res)=>{
+  const { username, password, passwordCheck } = req.body;
+  if(password==passwordCheck){
+    con.query(`INSERT INTO usersdb (id, password) VALUES (?, ?)`, [username, password])
+    res.redirect('/')
+  } else {
+    console.log("error")
+    return res.redirect('/auth/register')
+  }
+  
+})
+
+app.get('/postNew', (req, res)=>{
+  res.render('post');
+})
+
+app.post('/postNew/users', (req, res)=>{
+  const { tag, author, quote } = req.body;
+  con.query(`INSERT INTO book (tag, author, quote) VALUES (?, ?, ?)`, [tag, author, quote])
+  res.redirect('/')
+})
+
+app.get('/recommend', (req, res)=>{
+  con.query('SELECT * FROM book', (err, datas, fields)=>{
+    const len = datas.length-1;
+    const i = Math.floor(Math.random() * len )+1;
+    let data = []
+    data.push(datas[i]);
+    console.log(data)
+    res.render('recommend', {data});
+  })
+})
 
 
 const PORT = process.env.PORT || 8000
