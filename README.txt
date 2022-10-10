@@ -1,46 +1,53 @@
-Parallelism by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# 고급웹프로그래밍
 
+주제 : 나만의 명언 사이트 만들기
 
-It's done! Parallelism was an idea I mocked up a few months ago but, due to other
-committments, didn't get around to putting to code until recently. Different to
-my more general-purpose freebies, this one's specifically built for portfolio use
-with a very unique look/layout. Hope you enjoy it!
+# 홈페이지 & github & 시연 영상 링크
 
-Demo images* are courtesy of the supremely talented photographer Felicia Simion.
-If you like photography or just enjoy being blown away by awesome stuff, check
-out her portfolio for more stunning images:
+* 홈페이지 링크: heroku server를 쓰다가 지금은 sleep~!
+* github 링크: <https://github.com/GC-Park/rootingyou>
+* 시연 영상 링크: <https://www.youtube.com/watch?v=V913YJZiP_c&t=3s>
 
-http://ineedchemicalx.deviantart.com/
+---
 
-(* = Not included! Only meant for use with my own on-site demo, so please do NOT download
-and/or use any of Felicia's work without her explicit permission!)
+## 1. 과제 목표
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+-   이번 과제 목표로 첫째는 고급웹프로그래밍 수업 때 배운 것들을 최대한 복습하는 것이었습니다. node.js를 이번에 처음 공부하기도 했고 웹에 대해 이렇게 많은 부분을 배운 적이 처음이라 모두 저의 걸로 만들려고 노력했습니다. 두 번째는 하나의 서비스를 온전히 만드는 것이었습니다. 프론트부터 백, 데이터베이스, 배포까지 이 모든 과정을 혼자서 해본 적이 없기 때문에 이번 과제를 통해 꼭 해내서 한 단계 발전하고자 하였습니다. 마지막으로는 앞으로의 진로를 확실히 정할 수 있는 것이었습니다. 이번 과제가 범위도 넓고 처음 하는 부분도 많아서 조금 어려움을 느꼈지만 이 정도도 못한다면 웹 쪽으로의 진로는 어려울 것이라 생각을 했고 최대한 잘 마무리 지으려고 했습니다.
 
-AJ
-aj@lkn.io | @ajlkn
+---
 
+## 2. 개발 배경
 
-Credits:
+-   이번 과제의 필수 요건이 db연동과 MVC패턴을 사용하는 것이었습니다. 그래서 글을 어떻게 홈페이지에 잘 적용시킬 수 있을까를 많이 고민하였고 좋은 글귀 보는 것을 매우 좋아해서 명언이나 힘이 되는 글귀를 담은 홈페이지를 만들자는 생각을 하였습니다. 혼자 sns에 사진과 함께 글귀를 1년간 열심히 적어본 적도 있고 누군가와 나누고 싶었지만 마땅한 플랫폼이 없어 아쉬워했던 기억으로 저는 제가 쓴 글이 다른 사람에게 힘이 되고 다른 사람이 쓴 글이 저에게 힘이 되는 홈페이지를 만들어보고 싶었습니다. 그래서 작성한 것을 순서대로 보는 것을 넘어 홈페이지 가운데 random이라는 버튼을 만들어 네트워크에 떠도는 글귀가 무작위로 사람들에게 제공되는 기능도 만들었습니다. 앞으로 부족한 부분을 수정해서 많은 사람들이 쓰고 저도 활발하게 쓰는 서비스가 되도록 더 노력할 것입니다.
 
-	Demo Images:
-		Felicia Simion (ineedchemicalx.deviantart.com)
-			"Pasadena" (ineedchemicalx.deviantart.com/art/Pasadena-357650036)
-			"Your really got me" (ineedchemicalx.deviantart.com/art/You-really-got-me-345249340)
-			"Ad Infinitum" (ineedchemicalx.deviantart.com/art/Ad-infinitum-354203162)
-			"Different." (ineedchemicalx.deviantart.com/art/Different-353708988)
-			"Elysium" (ineedchemicalx.deviantart.com/art/Elysium-355393900)
-			"Kingdom of the Wind" (ineedchemicalx.deviantart.com/art/Kingdom-of-the-Wind-348268044)
-			"The Pursuit" (ineedchemicalx.deviantart.com/art/The-Pursuit-355003425)
-			"Boundless" (ineedchemicalx.deviantart.com/art/Boundless-291831118)
-			"The Spectators" (ineedchemicalx.deviantart.com/art/The-Spectators-342155982)
+---
 
-	Icons:
-		Font Awesome (fontawesome.io)
+## 3. 개발 내용
 
-	Other:
-		jQuery (jquery.com)
-		normalizeWheel (@miorel + @pieterv of Facebook)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+- Front : 이번 과제에서는 front에 최대한 힘을 빼려고 노력하였습니다. 그래서 템플릿을 활용하였고 예쁜 form들도 가져오는 등 만드는 것이 아닌 전체 틀을 이해하고 수정을 하는 방식으로 하였습니다. (출처는 맨 마지막에 있습니다!)
+
+- Backend : node.js를 이번 수업을 통해 처음 배우기도 했고 한 번도 써본 적이 없어 과제를 하면서 가장 어려운 부분이었습니다. 수업을 통해 배운 부분들을 최대한 적용하려고 했고 저의 걸로 만들려고 노력했습니다. MVC패턴에서 MVC 모두에 관련이 있기도 해서 많은 시간을 썼습니다. 그리고 Middleware와 Controllers를 사용해 효율적으로 만들려고 했지만 heroku 배포에 문제가 생겨서 적용은 시킬 수 없었습니다.
+
+- 데이터베이스 : 이번 학기 수업에서는 Mongodb를 써서 홈페이지를 만들었는데 heroku가 지원해주던 mongodb addon이 더 이상 지원을 하지 않아서 결국 배포를 위해 관계형인 mysql로 바꿨습니다. 서버는 planetscale이라는 곳을 썼고 데이터베이스를 시각화 해주는 heidiSQL로 mysql을 조금은 편하게 적용시킬 수 있었습니다.
+
+- 배포 : Backend 부분이 가장 어려웠다면 배포 부분은 가장 많이 애를 먹은 부분이었습니다. 지원하지 않는 것이 많았고 프론트, 백, 데이터베이스를 모두 써서 배포 해보는 게 처음이라 방법도 잘 몰랐습니다. 배포를 하면서 가장 많이 구글링을 하고 시행착오를 겪으며 해결 방안들을 찾은 것 같습니다. aws를 써보기도 했지만 결국 데이터베이스를 교체하고 heroku로 무사히 배포할 수 있었습니다.
+
+---
+
+## 4. 파일 구조
+
+-   파일 구조는 루트에 express server index.js와 package.json 등이 있고 프론트 부분이 들어가 있는 views폴더 css, js, image등이 들어있는 public 폴더가 있습니다. 그리고 mysql 연결 파일이 models 안에 있습니다.
+
+---
+
+## 5. 라이브러리
+
+- 저번 중간고사 때보다는 많이 쓰지 않았습니다. html파일에서 jsavascript 문법을 쓸 수 있게 해주는 ejs와 mysql연결을 도와주는 mysql2, 암호화에 도움을 주는 bcrypt 등을 썼고 백 부분을 효율적으로 만들 수 있게 도와주는 express 프레임워크도 썼습니다.
+
+---
+
+## 6. 느낀점
+
+-   이번 과제를 통해 정말 많은 공부가 되었고 꿈에 대해 진지하게 생각할 수 있었습니다. 처음 고급웹프로그래밍 강의를 신청할 때 아직 모르는 부분도 많고 잘할 수 있을까하는 불안함이 있었는데 유용한 수업과 교수님이 웹을 공부하는 방법을 잘 알려주셔서 무사히 마무리 할 수 있었다고 생각합니다. 지금까지 모든 과목 중 가장 재미있었고 가장 많은 발전을 한 것 같습니다. 한 학기동안 정말 감사했습니다.!!!
+
+---
