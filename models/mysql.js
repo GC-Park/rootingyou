@@ -1,11 +1,13 @@
-require('dotenv').config();
-const mysql = require('mysql2');
+require('dotenv').config()
+const mysql = require('mysql2')
 
-const con = mysql.createConnection(`mysql://mzdtqvpnp9ru:pscale_pw_BvZ-lLti7gUZjfFjnMdW4cD3rW7rvXYut9pBGeuGCC0@mdo5v6rbycsb.ap-northeast-2.psdb.cloud/parkdb?ssl={"rejectUnauthorized":true}`);
+const con = mysql.createConnection(
+    `mysql://5d1ucrw69n0vrrncn93p:pscale_pw_siXk05D0rEGMaqxge5MSE8s1edIEqtuGIoUSpA6qlmz@ap-northeast.connect.psdb.cloud/parkdb?ssl={"rejectUnauthorized":true}`
+)
 
-con.connect(function(err) {
-  if(err) throw err;
-  console.log("[mysql] : data db connection success")
+con.connect(function (err) {
+    if (err) throw err
+    console.log('[mysql] : data db connection success')
 })
 
-module.exports = con;
+module.exports = con
