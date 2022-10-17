@@ -4,7 +4,7 @@
 
 # 홈페이지 & github & 시연 영상 링크
 
-* 홈페이지 링크: heroku server를 쓰다가 지금은 sleep~!
+* 홈페이지 링크: heroku server를 쓰다가 지금은 sleep~! 시연 영상 참고해주세요 !
 * github 링크: <https://github.com/GC-Park/rootingyou>
 * 시연 영상 링크: <https://www.youtube.com/watch?v=V913YJZiP_c&t=3s>
 
